@@ -1,0 +1,129 @@
+/* 앱 화면과 같은 색: 어두운 본체 + 연두빛 LCD 창 */
+@font-face {
+  font-family: 'Galmuri14';
+  src: url('fonts/Galmuri14.woff2') format('woff2');
+  font-display: swap;
+}
+
+:root {
+  --shell: #22262A;
+  --deep: #111416;
+  --lcd: #D3DDD8;
+  --lcd-line: #C2CDC8;
+  --ink: #18211F;
+  --sub: #4A5752;
+  --dash: #A3B1AB;
+  --light: #C3CBC8;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--shell);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 28px 16px 48px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.wrap { max-width: 640px; margin: 0 auto; }
+
+.px, h1, h2 { font-family: 'Galmuri14', sans-serif; font-weight: 400; }
+
+/* 위쪽 경로 줄 (본체 위 글씨) */
+.top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  margin-bottom: 10px;
+  color: var(--light);
+  font-size: 15px;
+}
+.top a { color: var(--light); text-decoration: none; }
+.top a:hover { text-decoration: underline; }
+
+/* LCD 창 */
+.lcd {
+  background: var(--lcd);
+  border: 4px solid var(--deep);
+  box-shadow: inset 0 0 0 2px var(--lcd-line);
+  padding: 28px 24px 32px;
+}
+
+h1 { font-size: 24px; line-height: 1.4; margin: 0 0 4px; }
+h2 {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 28px 0 8px;
+  padding-top: 22px;
+  border-top: 1px dashed var(--dash);
+}
+p, li { font-size: 15px; }
+p { margin: 0 0 12px; }
+ul { margin: 0 0 12px; padding-left: 20px; }
+a { color: var(--ink); text-underline-offset: 3px; }
+
+.sub { color: var(--sub); font-size: 13px; }
+.lead { margin-bottom: 4px; }
+
+/* 앱 머리 (아이콘 + 이름) */
+.app-head { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.app-head img {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  flex: 0 0 auto;
+}
+.app-head h1 { margin: 0; }
+
+/* 줄 목록 (설정 화면 줄처럼) */
+.rows { list-style: none; margin: 8px 0 0; padding: 0; }
+.rows li { border-bottom: 1px dashed var(--dash); }
+.rows li:last-child { border-bottom: none; }
+.rows a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 4px;
+  text-decoration: none;
+}
+.rows a:hover .name { text-decoration: underline; }
+.rows .name { flex: 1 1 auto; font-family: 'Galmuri14', sans-serif; font-size: 15px; }
+.rows .arrow { width: 6px; height: 10px; flex: 0 0 auto; }
+
+/* 앱 목록 카드 */
+.app-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px dashed var(--dash);
+}
+.app-card:last-child { border-bottom: none; padding-bottom: 0; }
+.app-card img { width: 64px; height: 64px; border-radius: 14px; flex: 0 0 auto; }
+.app-card .name { font-family: 'Galmuri14', sans-serif; font-size: 18px; margin: 0 0 2px; }
+.app-card .name a { text-decoration: none; }
+.app-card p { margin: 0 0 6px; }
+.links { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; }
+
+/* 자주 묻는 질문 */
+.qa { margin: 0 0 16px; }
+.qa .q { font-weight: 600; margin: 0 0 2px; }
+
+footer {
+  margin-top: 16px;
+  text-align: center;
+  color: #8E9C96;
+  font-size: 12px;
+}
+footer a { color: #8E9C96; }
